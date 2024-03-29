@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     #Third party app
 
     #Internal app
-    "Suivi.apps.SuiviConfig",
+    "Articles.apps.ArticlesConfig",
 ]
 
 MIDDLEWARE = [
