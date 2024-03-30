@@ -22,7 +22,7 @@ class Group(models.Model):
     def __str__(self):
         return self.name
     
-class Merch(models.model):
+class Merch(models.Model):
     name = models.CharField(max_length = 200)
 
     def __str__(self):
