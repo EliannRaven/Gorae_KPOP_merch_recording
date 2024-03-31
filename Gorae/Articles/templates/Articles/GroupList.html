@@ -1,0 +1,39 @@
+{% extends 'Base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class ="createContactButton"><a href="{% url 'GroupCreate' %}">Créer un groupe</a></div>
+
+<table class = "tableList">
+    <tr class = "header">
+        <th>Image</th>
+        <th>Nom</th>
+        <th>Artiste</th>
+        <th>Supprimer</th>
+    </tr>
+    {% for group in Group %}
+        <tr class = "lines">
+            <td>
+                {% if group.image %}
+                    <img src="{{ group.image.url }}" alt="{{ group.name }} profile picture" class = "profilImage">
+                {% endif %}
+            </td>
+            <td><a href="{% url 'GroupUpdate' group.id %}">{{group.name}}</a></td>
+            <td>
+                {% for artist in group.artist.all %}
+                    {{ artist.name }}
+                {% if not forloop.last %}, {% endif %}
+                {% empty %}
+                    Pas d'artiste.
+                {% endfor %}
+            </td>
+            <td><a href="{% url 'GroupDelete' group.id %}"><img src="{% static 'image/remove.png' %}" alt="Delete" class = "tableImage"></a></td>
+        </tr>
+    {% empty %}
+        <h3>Pas de groupe enregistré</h3>
+    {% endfor %}
+</table>
+
+{% endblock %}

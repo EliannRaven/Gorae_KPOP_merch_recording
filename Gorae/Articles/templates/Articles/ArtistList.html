@@ -4,26 +4,35 @@
 
 {% block content %}
 
-<table class = "suiviPro">
+<div class ="createContactButton"><a href="{% url 'ArtistCreate' %}">Créer un artiste</a></div>
+
+<table class = "tableList">
     <tr class = "header">
         <th>Image</th>
         <th>Nom</th>
         <th>Groupe</th>
-        <th>upprimer</th>
+        <th>Supprimer</th>
     </tr>
     {% for person in Artist %}
         <tr class = "lines">
             <td>
                 {% if person.image %}
-                    <img src="{{ person.image.url }}" alt="{{ person.name }} profile picture">
+                    <img src="{{ person.image.url }}" alt="{{ person.name }} profile picture" class = "profilImage">
                 {% endif %}
             </td>
-            <td><p>{{person.name}}</p></td>
-            <td>Groupe</td>
-            <td><img src="{% static 'image/remove.png' %}" alt="Delete"</td>
+            <td><a href="{% url 'ArtistUpdate' person.id %}">{{person.name}}</a></td>
+            <td>
+                {% for group in person.group_set.all %}
+                    {{ group.name }}{% if not forloop.last %}, {% endif %}
+                {% empty %}
+                    Pas de groupe
+                {% endfor %}
+            </td>
+            <td><a href="{% url 'ArtistDelete' person.id %}"><img src="{% static 'image/remove.png' %}" alt="Delete" class = "tableImage"></a></td>
         </tr>
     {% empty %}
         <h3>Pas d'artiste enregistré</h3>
     {% endfor %}
+</table>
 
 {% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'Base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<form method="POST" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <p>Nom de l'artiste: {{form.name}}</p>
+    <p>Photo de profil: {{form.image}}</p>
+
+    <input type="submit" value ="Submit">
+
+{% endblock %}

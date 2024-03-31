@@ -1,0 +1,14 @@
+{% extends 'Base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="container">
+    <h2>Confirmer la supression de ce groupe ?</h2>
+    <p>Etes vous sûr de vouloir supprimer: "{{ Group }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Delete">
+    </form>
+</div>
+{% endblock %}
