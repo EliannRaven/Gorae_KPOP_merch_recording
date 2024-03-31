@@ -1,0 +1,29 @@
+{% extends 'Base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<table class = "suiviPro">
+    <tr class = "header">
+        <th>Image</th>
+        <th>Nom</th>
+        <th>Groupe</th>
+        <th>upprimer</th>
+    </tr>
+    {% for person in Artist %}
+        <tr class = "lines">
+            <td>
+                {% if person.image %}
+                    <img src="{{ person.image.url }}" alt="{{ person.name }} profile picture">
+                {% endif %}
+            </td>
+            <td><p>{{person.name}}</p></td>
+            <td>Groupe</td>
+            <td><img src="{% static 'image/remove.png' %}" alt="Delete"</td>
+        </tr>
+    {% empty %}
+        <h3>Pas d'artiste enregistré</h3>
+    {% endfor %}
+
+{% endblock %}

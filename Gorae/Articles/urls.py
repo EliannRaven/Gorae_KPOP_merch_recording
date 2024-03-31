@@ -3,6 +3,8 @@ from .views import MerchTypeList, MerchTypeCreate, MerchTypeUpdate, MerchTypeDel
 from .views import ArtistList, ArtistCreate, ArtistUpdate, ArtistDelete
 from .views import GroupList, GroupCreate, GroupUpdate, GroupDelete
 from .views import MerchList, MerchCreate, MerchUpdate, MerchDelete
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
 
@@ -29,4 +31,4 @@ urlpatterns = [
     path('MerchCreate/', MerchCreate.as_view(), name = 'MerchCreate'),
     path('MerchUpdate/<int:pk>/', MerchUpdate.as_view(), name = 'MerchUpdate'),
     path('MerchDelete/<int:pk>/', MerchDelete.as_view(), name = 'MerchDelete'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
