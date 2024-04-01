@@ -7,6 +7,65 @@ body {
     background-color : rgb(238, 229, 252);
 }
 
+/* Navbar */
+
+.Navbar {
+    width: 90%;
+    margin: 30px auto 20px; /* Center horizontally with 30px margin from the top */
+}
+
+.Navbar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Navbar ul li {
+    width: 20%;
+    text-align: center;
+    background-color: #333; /* Light anthracite */
+    color: white;
+    padding: 10px 0;
+    position: relative; /* For dropdown */
+}
+
+.Navbar ul li:hover {
+    background-color: #555; /* Hover effect color */
+}
+
+.Navbar ul li a {
+    text-decoration: none; /* No underline */
+    color: white;
+}
+
+.Navbar ul li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #333; /* Light anthracite */
+    z-index: 999;
+}
+
+.Navbar ul li:hover ul {
+    display: block;
+}
+
+.Navbar ul li ul a {
+    color: white;
+    display: block;
+    padding: 10px;
+    text-align: center; /* Center text */
+}
+
+.Navbar ul li ul a:hover {
+    background-color: #555; /* Hover effect color */
+}
+
+
 /* Table List - Used for ArtistList */
 .tableList {
     position: relative;
