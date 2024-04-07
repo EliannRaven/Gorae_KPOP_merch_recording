@@ -1,0 +1,21 @@
+{% extends 'Base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="grid-container">
+    {% for merch in Merch %}
+        <div class="grid-item">
+            <img src="{{ merch.image.url }}" alt="{{ merch.name }}">
+            <p>{{ merch.name }}</p>
+            <p>{{ merch.group }}</p>
+            <p>
+                {% for artist in merch.artist.all %}
+                    {{ artist }}
+                    {% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </p>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

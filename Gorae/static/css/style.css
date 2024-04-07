@@ -65,7 +65,6 @@ body {
     background-color: #555; /* Hover effect color */
 }
 
-
 /* Table List - Used for ArtistList */
 .tableList {
     position: relative;
@@ -90,4 +89,22 @@ body {
     background-color: #BABBFF;
     font-weight: 1000;
     font-size: large;
+}
+
+/*Picture grid */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); /* Adjust the column width as needed */
+    gap: 20px; /* Adjust the gap between grid items */
+    width: 90%;
+    margin: 0 auto;
+}
+.grid-item {
+    border: 1px solid #ccc; /* Add borders or other styles for each grid item */
+    padding: 10px;
+    text-align: center;
+}
+.grid-item img {
+    height: 120px;
+    width: auto; /* Maintain aspect ratio */
 }

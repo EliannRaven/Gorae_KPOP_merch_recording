@@ -1,0 +1,14 @@
+{% extends 'Base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<form method="POST" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <p>Nom du merch: {{form.name}}</p>
+
+    <input type="submit" value ="Submit">
+
+{% endblock %}

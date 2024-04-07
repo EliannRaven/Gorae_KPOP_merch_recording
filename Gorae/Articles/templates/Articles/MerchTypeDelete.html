@@ -1,0 +1,14 @@
+{% extends 'Base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="container">
+    <h2>Confirmer la supression de ce merch ? Pour information, tous les merchs associés à ce type resteront, mais auront un type "vide".</h2>
+    <p>Etes vous sûr de vouloir supprimer: "{{ MerchTypes }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Delete">
+    </form>
+</div>
+{% endblock %}

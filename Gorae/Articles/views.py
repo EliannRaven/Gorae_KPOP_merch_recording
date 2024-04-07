@@ -41,6 +41,7 @@ class MerchTypeCreate(CreateView):
     context_object_name = 'MerchType'
     fields = '__all__'
     template_name = 'Articles/MerchTypeForm.html'
+    success_url = reverse_lazy('MerchTypeList')
 
 class ArtistCreate(CreateView):
     model = Artist
@@ -69,6 +70,7 @@ class MerchTypeUpdate(UpdateView):
     model = MerchType
     fields = '__all__'
     template_name = 'Articles/MerchTypeForm.html'
+    success_url = reverse_lazy('MerchTypeList')
 
 class ArtistUpdate(UpdateView):
     model = Artist
@@ -92,7 +94,7 @@ class MerchTypeDelete(DeleteView):
     model = MerchType
     context_object_name = 'MerchType'
     template_name = 'Articles/MerchTypeDelete.html'
-    success_url = reverse_lazy('')
+    success_url = reverse_lazy('MerchTypeList')
 
 class ArtistDelete(DeleteView):
     model = Artist

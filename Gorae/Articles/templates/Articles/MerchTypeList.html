@@ -1,0 +1,24 @@
+{% extends 'Base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class ="createContactButton"><a href="{% url 'MerchTypeCreate' %}">Créer un type de merch</a></div>
+
+<table class = "tableList">
+    <tr class = "header">
+        <th>Nom</th>
+        <th>Supprimer</th>
+    </tr>
+    {% for merch in MerchType %}
+        <tr class = "lines">
+            <td><a href="{% url 'MerchTypeUpdate' merch.id %}">{{merch.name}}</a></td>
+            <td><a href="{% url 'MerchTypeDelete' merch.id %}"><img src="{% static 'image/remove.png' %}" alt="Delete" class = "tableImage"></a></td>
+        </tr>
+    {% empty %}
+        <h3>Pas de merch enregistré</h3>
+    {% endfor %}
+</table>
+
+{% endblock %}
